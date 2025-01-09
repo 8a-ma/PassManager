@@ -48,8 +48,9 @@ class App():
             system('clear')
             print("==== PassManager ====")
             print("==== Cuentas ====")
-            for account in self.administrator.getAccounts():
-                print(f'{account.getUsername()} {account.getWebsite()}')
+            for index, account in enumerate(self.administrator.getAccounts()):
+                print("Id  Username   Website")
+                print(f'{index}. {account.getUsername()} {account.getWebsite()}')
             
             
             response = str(input("\nEnter para salir "))
