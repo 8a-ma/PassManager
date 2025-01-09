@@ -10,3 +10,9 @@ class Administrator():
     
     def getAccounts(self):
         return self.accounts
+    
+    def searchUsername(self, username):
+        for account in self.accounts:
+            if account.getUsername() == username:
+                return account
+        return False

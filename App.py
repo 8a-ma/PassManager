@@ -13,6 +13,7 @@ class App():
             print("0. Salir")
             print("1. Crear cuenta")
             print("2. Listar cuentas")
+            print("3. Ingresar en cuenta")
             response = str(input("\nElige una opción: "))
 
             if response == '0':
@@ -23,6 +24,9 @@ class App():
             
             elif response == '2':
                 self.listAccounts()
+
+            elif response == '3':
+                self.showAccount()
 
     
     def createAccount(self):
@@ -49,8 +53,30 @@ class App():
             
             
             response = str(input("\nEnter para salir "))
-            if len (response) == 0:
+            if len(response) == 0:
                 break
+    
+    def showAccount(self):
+        while True:
+            system('clear')
+            print("==== PassManager ====")
+            print("==== Cuenta ====")
+            request = str(input("Nombre de usuario: "))
+            account = self.administrator.searchUsername(request)
+
+            if account:
+                print(f"Username: {account.getUsername()}")
+                print(f"Password: {account.getPassword()}")
+                print(f"Web site: {account.getWebsite()}")
+                print(f"Notas:    {account.getNote()}")
+
+                str(input("\nEnter para salir "))
+
+                break
+                
+            print("\nUsuario no encontrado")
+            input("Enter para continuar")
+
 
 
     def getValid(self):
