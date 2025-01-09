@@ -70,12 +70,22 @@ class App():
                 print(f"Web site: {account.getWebsite()}")
                 print(f"Notas:    {account.getNote()}")
 
-                str(input("\nEnter para salir "))
+                response = str(input("\n¿Desea modificar algún campo? (y/n): "))
+                if response == 'y':
+                    account.setUsername(str(input("Username: ") or account.getUsername()))
+                    account.setPassword(str(input("Password: ") or account.getPassword()))
+                    account.setWebsite(str(input("Web site: ") or account.getWebsite()))
+                    account.setNote(str(input("Nota: ") or account.getNote()))
+                    pass
+
+                input("\nEnter para salir ")
 
                 break
                 
             print("\nUsuario no encontrado")
-            input("Enter para continuar")
+            response = str(input("Enter para continuar\n0. Para salir\n"))
+            if response == '0':
+                break
 
 
 
