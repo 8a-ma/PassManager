@@ -17,6 +17,7 @@ class App():
             response = str(input("\nElige una opción: "))
 
             if response == '0':
+                self.administrator.saveAccounts()
                 self.valid = False
                 break
             elif response == '1':
@@ -47,7 +48,7 @@ class App():
         while True:
             system('clear')
             print("==== PassManager ====")
-            print("==== Cuentas ====")
+            print("==== Lista de Cuentas ====")
             for index, account in enumerate(self.administrator.getAccounts()):
                 print("Id  Username   Website")
                 print(f'{index}. {account.getUsername()} {account.getWebsite()}')
